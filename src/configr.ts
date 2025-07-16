@@ -37,6 +37,16 @@ class Configr {
         return this.context.globalState.get("totalLine");
     }
     
+    // 获取保存时替换文本
+    GetSaveReplaceText(): string {
+        return this.context.globalState.get("SaveReplaceText", ""); // 默认为空字符串 或者来个 The code here will be written next time?
+    }
+
+    // 获取自动隐藏超时
+    GetAutoHideTimeout(): number {
+        return this.context.globalState.get("AutoHideTimeout", 10); // 默认为10秒
+    }
+    
     SetWordsLimit(limit: number): void {
         this.context.globalState.update("WordsLimit", limit).then();
     }
@@ -59,6 +69,16 @@ class Configr {
     
     SetTotalLine(totalLine: number): void {
         this.context.globalState.update("totalLine", totalLine).then();
+    }
+
+    // 设置保存时替换文本
+    SetSaveReplaceText(text: string): void {
+        this.context.globalState.update("SaveReplaceText", text).then();
+    }
+
+    // 设置自动隐藏超时
+    SetAutoHideTimeout(seconds: number): void {
+        this.context.globalState.update("AutoHideTimeout", seconds).then();
     }
 };
 //*//   
